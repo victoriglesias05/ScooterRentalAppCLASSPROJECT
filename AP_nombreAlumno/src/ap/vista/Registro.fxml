@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane prefWidth="560.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ap.controlador.RegistroController">
+   <top>
+      <VBox styleClass="cabecera" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="titulo" text="ALQUILER DE PATINETES" />
+            <Label styleClass="subtitulo" text="Registro de un nuevo alquiler" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <GridPane hgap="14.0" vgap="14.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+         </columnConstraints>
+         <padding>
+            <Insets bottom="12.0" left="30.0" right="30.0" top="24.0" />
+         </padding>
+         <children>
+            <Label styleClass="etiqueta" text="DNI *" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtDni" promptText="12345678A" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label styleClass="etiqueta" text="Nombre completo *" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNombre" promptText="Nombre y apellidos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label styleClass="etiqueta" text="Email *" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtEmail" promptText="usuario@correo.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label styleClass="etiqueta" text="Teléfono *" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="txtTelefono" promptText="600123456" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label styleClass="etiqueta" text="Patinete *" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <HBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <TextField fx:id="txtPatinete" editable="false" promptText="Nº serie (usa la lupa)" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnLupa" mnemonicParsing="false" onAction="#onBuscarPatinete" styleClass="boton, boton-primario">
+                     <graphic>
+                        <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="WHITE" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Elegir patinete de la lista" />
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+
+            <Label styleClass="etiqueta" text="F. Recogida *" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <DatePicker fx:id="dpRecogida" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <Label styleClass="etiqueta" text="F. Devolución *" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <DatePicker fx:id="dpDevolucion" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="pie" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" onAction="#onCancelar" styleClass="boton, boton-secundario" text="Cancelar" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#onLimpiar" styleClass="boton, boton-secundario" text="Limpiar datos" />
+            <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#onAceptar" styleClass="boton, boton-primario" text="Aceptar" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
